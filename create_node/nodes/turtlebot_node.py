@@ -237,7 +237,7 @@ class TurtlebotNode(object):
 
     def set_operation_mode(self,req):
         if not self.robot.sci:
-            rospy.logwarn("Create : robot not connected yet, sci not available")
+            rospy.logwarn("Create : robot not connected yet, sci not available. Check if cable is connected. Incorrect TURTLEBOT_BASE environment variable causing the wrong baudrate to be used is another possible cause.")
             return SetTurtlebotModeResponse(False)
 
         self.operate_mode = req.mode
@@ -309,7 +309,7 @@ class TurtlebotNode(object):
 
     def set_digital_outputs(self,req):
         if not self.robot.sci:
-            raise Exception("Robot not connected, SCI not available")
+            raise Exception("Robot not connected, SCI not available. Incorrect TURTLEBOT_BASE environment variable causing the wrong baudrate to be used is another possible cause.")
             
         outputs = [req.digital_out_0,req.digital_out_1, req.digital_out_2]
         self._set_digital_outputs(outputs)
