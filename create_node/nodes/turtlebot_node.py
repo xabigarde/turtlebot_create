@@ -325,7 +325,7 @@ class TurtlebotNode(object):
         # state
         s = self.sensor_state
         odom = Odometry(header=rospy.Header(frame_id=self.odom_frame), child_frame_id=self.base_frame)
-        js = JointState(name = ["left_wheel_joint", "right_wheel_joint", "front_castor_joint", "back_castor_joint"],
+        js = JointState(name = ["left_wheel_joint", "right_wheel_joint", "front_castor_joint", "rear_castor_joint"],
                         position=[0,0,0,0], velocity=[0,0,0,0], effort=[0,0,0,0])
 
         r = rospy.Rate(self.update_rate)
