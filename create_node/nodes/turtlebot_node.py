@@ -117,7 +117,7 @@ class TurtlebotNode(object):
                 self.robot.start(self.port, robot_types.ROBOT_TYPES[self.robot_type].baudrate)
                 break
             except serial.serialutil.SerialException as ex:
-                msg = "Failed to open port %s. Error: %s Please make sure the Create cable is plugged into the computer. \n"%((self.port), ex.message)
+                msg = "Failed to open port %s. Error: %s Please make sure the Create cable is plugged into the computer. Ensure environment variable is set to TURTLEBOT_BASE=create for Create 1 base, TURTLEBOT_BASE=roomba for Create 2.\n"%((self.port), ex.message)
                 self._diagnostics.node_status(msg,"error")
                 if log_once:
                     log_once = False
@@ -237,7 +237,7 @@ class TurtlebotNode(object):
 
     def set_operation_mode(self,req):
         if not self.robot.sci:
-            rospy.logwarn("Create : robot not connected yet, sci not available. Check if cable is connected. Incorrect TURTLEBOT_BASE environment variable causing the wrong baudrate to be used is another possible cause.")
+            rospy.logwarn("Create : robot not connected yet, sci not available. Check if cable is connected. Incorrect TURTLEBOT_BASE environment variable causing the wrong baudrate to be used is another possible cause. Ensure environment variable is set to TURTLEBOT_BASE=create for Create 1 base, TURTLEBOT_BASE=roomba for Create 2.")
             return SetTurtlebotModeResponse(False)
 
         self.operate_mode = req.mode
