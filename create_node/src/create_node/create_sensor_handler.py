@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Software License Agreement (BSD License)
 #
 # Copyright (c) 2011, Willow Garage, Inc.
@@ -72,7 +74,7 @@ def deserialize(msg, buff, timestamp):
         msg.requested_left_velocity  = float(msg.requested_left_velocity) / 1000.
 
         return msg
-    except struct.error, e:
+    except struct.error as e:
       raise roslib.message.DeserializationError(e)
 
 class CreateSensorHandler(object):

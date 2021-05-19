@@ -26,8 +26,8 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-import create_sensor_handler
-import roomba_sensor_handler
+from . import create_sensor_handler
+from . import roomba_sensor_handler
 
 __author__ = 'moesenle@in.tum.de (Lorenz Moesenlechner)'
 
